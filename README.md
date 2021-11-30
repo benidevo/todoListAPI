@@ -1,7 +1,5 @@
-# Blog API
-
-
-
+# Todo List API
+A simple API for creating, updating, and deleting todo list items.
 
 ## Technologies 
 
@@ -11,7 +9,6 @@ The following technologies were used in this project:
 - [Node.js](https://nodejs.org/en/)
 - [Express.js](https://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/cloud/atlas)
-
 
 
 ## Requirements
@@ -27,7 +24,7 @@ After creating the .env file, follow the steps below to run the server.
 
 ## Clone this project
 
-    git clone https://github.com/benidevo/blog-api.git
+    git clone https://github.com/benidevo/todoListAPI.git
 
 ## Install dependencies
 

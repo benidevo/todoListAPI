@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const {createTodoItem, getAllTodoItems, getTodoItemById, deleteTodoItem, updateTodoItem} = require('../controllers/todos');
+const { createTodoItem, getAllTodoItems, getTodoItemById, deleteTodoItem, updateTodoItem } = require('../controllers/todos');
+const {taskValidator} = require('../middlewares/todosValidators');
 
 // create todo item
-router.post('/', createTodoItem)
+router.post('/', taskValidator, createTodoItem)
 
 // retrieve all todo items
 router.get('/', getAllTodoItems)
@@ -15,6 +16,6 @@ router.get('/:taskId', getTodoItemById)
 router.delete('/:taskId', deleteTodoItem)
 
 // update todo item by id
-router.put('/:taskId', updateTodoItem)
+router.put('/:taskId', taskValidator, updateTodoItem)
 
 module.exports = router;

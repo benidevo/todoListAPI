@@ -1,10 +1,17 @@
 const TodoItem = require('../models/todoItem');
+const {validationResult} = require('express-validator');
 
 
 exports.createTodoItem = async function (req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() });
+    }
+
     const task = req.body.task;
     const todoItem = new TodoItem({ task });
     await todoItem.save()
+
     res.status(201).json({data: todoItem});
 };
 
@@ -50,6 +57,11 @@ exports.deleteTodoItem = async function (req, res) {
 }
 
 exports.updateTodoItem = async function (req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() });
+    }
+    
     const task = req.body.task;
     const taskId = req.params.taskId;
 
